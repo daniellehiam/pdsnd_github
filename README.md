@@ -8,7 +8,10 @@
 This project aimed to uncover what was the most popular times of travel. This allows companies to understand the movements of their consumers to make sure they prioritise certain times for advertising, or making sure ample bikes are available
 
 ### Files used
-Include the files used
+Following data was taken from following:  
+1. new-york-city.csv
+2. washington.csv
+3. chicago.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Credit to Motivate 
