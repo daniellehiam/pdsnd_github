@@ -39,12 +39,12 @@ Each dataset has 300000 observations and 9 variable expcept for Washington who d
 **Popular times of travel (i.e., occurs most often in the start time)**
 
 *QUESTION ONE: What is the most common month?*
-```{R}
+```{r echo=FALSE}
 Bind_ALL$month <- month(dmy_hm(Bind_ALL$Start.Time), label= TRUE, abbr=FALSE) 
 ```
-This code above pulls the month out of the Start.Time colunmn and allows us to then count the frequency
 
-```{r echo= TRUE, results = 'asis'}
+
+```{r echo= FALSE}
 library(knitr)
 month <- Bind_ALL %>%  
 group_by(month) %>%
@@ -52,10 +52,8 @@ group_by(month) %>%
 kable(month)
 ```
 
- 
-VISUALISE Q1
 
-```{r}
+```{r echo=FALSE}
 Graph=as.data.frame(month)
 ggplot(aes(x=month, y=frequency), data=month) +
   geom_col()+
