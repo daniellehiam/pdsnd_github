@@ -7,7 +7,7 @@ output:
 
 **Set Working Directory and Load files**
 
-```{r}
+```{r echo=FALSE}
 getwd()
 setwd("C:/Users/e5104965/Dropbox/RMIT_Training/R_Bikeshare")
 list.files()
