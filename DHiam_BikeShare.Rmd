@@ -44,7 +44,7 @@ Bind_ALL$month <- month(dmy_hm(Bind_ALL$Start.Time), label= TRUE, abbr=FALSE)
 ```
 
 
-```{r echo= FALSE}
+```{R echo= FALSE}
 library(knitr)
 month <- Bind_ALL %>%  
 group_by(month) %>%
@@ -53,7 +53,7 @@ kable(month)
 ```
 
 
-```{r echo=FALSE}
+```{R echo=FALSE}
 Graph=as.data.frame(month)
 ggplot(aes(x=month, y=frequency), data=month) +
   geom_col()+
