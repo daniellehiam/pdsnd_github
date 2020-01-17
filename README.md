@@ -1,15 +1,24 @@
-### Date created
-Include the date you created this project and README file.
+# Date created
+*Project Created 2/01/2020*
 
-### Project Title
-Replace the Project Title
+# Project Title
+**DHiam Bike Share project**
 
-### Description
-Describe what your project is about and what it does
+## Description
+This project aimed to uncover what was the most popular times of travel. This allows companies to understand the movements of their consumers to make sure they prioritise certain times for advertising, or making sure ample bikes are available
+
+## Data packages required
+The following R packages were required;
+1. lubridate
+2. dplyr
+3. knitr
 
 ### Files used
-Include the files used
+Following data was taken from following:  
+1. new-york-city.csv
+2. washington.csv
+3. chicago.csv
+
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Credit to Motivate
