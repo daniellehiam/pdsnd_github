@@ -7,11 +7,18 @@
 ## Description
 This project aimed to uncover what was the most popular times of travel. This allows companies to understand the movements of their consumers to make sure they prioritise certain times for advertising, or making sure ample bikes are available
 
+## Data packages required
+The following R packages were required;
+1. lubridate
+2. dplyr
+3. knitr
+
 ### Files used
 Following data was taken from following:  
 1. new-york-city.csv
 2. washington.csv
 3. chicago.csv
 
+
 ### Credits
-Credit to Motivate 
+Credit to Motivate
