@@ -19,7 +19,7 @@ chi = read.csv('chicago.csv')
 
 **Upload Packages required**
 
-```{r}
+```{r echo=FALSE}
 library(tidyverse)
 library(lubridate)
 library(dplyr)
@@ -27,7 +27,7 @@ library(dplyr)
 
 **Bind all 3 datasets into single dataset to get results for overall findings**
 
-```{r}
+```{r echo=FALSE}
 Bind_ALL=bind_rows(ny, chi, wash)
 dim(Bind_ALL)
 ```
