@@ -1,0 +1,130 @@
+---
+title: "DHiam_BikeShare_Project 2"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+**Set Working Directory and Load files**
+
+```{r}
+getwd()
+setwd("C:/Users/e5104965/Dropbox/RMIT_Training/R_Bikeshare")
+list.files()
+
+ny = read.csv('new-york-city.csv')
+wash = read.csv('washington.csv')
+chi = read.csv('chicago.csv')
+```
+
+**Upload Packages required**
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(dplyr)
+```
+
+**Bind all 3 datasets into single dataset to get results for overall findings**
+
+```{r}
+Bind_ALL=bind_rows(ny, chi, wash)
+dim(Bind_ALL)
+```
+
+**NOTE**
+Each dataset has 300000 observations and 9 variable expcept for Washington who does not have gender or Birth year data and these are allocated NA. While there are warnings they are acceptable. 
+
+
+**Popular times of travel (i.e., occurs most often in the start time)**
+
+*QUESTION ONE: What is the most common month?*
+```{R}
+Bind_ALL$month <- month(dmy_hm(Bind_ALL$Start.Time), label= TRUE, abbr=FALSE) 
+```
+This code above pulls the month out of the Start.Time colunmn and allows us to then count the frequency
+
+```{r echo= TRUE, results = 'asis'}
+library(knitr)
+month <- Bind_ALL %>%  
+group_by(month) %>%
+  summarise(frequency = n())
+kable(month)
+```
+
+ 
+VISUALISE Q1
+
+```{r}
+Graph=as.data.frame(month)
+ggplot(aes(x=month, y=frequency), data=month) +
+  geom_col()+
+  theme_classic()+
+  labs(y="Frequency of hire", 
+       x="Month", 
+       title="Frequency of bike hire by month", 
+       caption = "Source: Motivate (New York, Washington, Chicago)")
+```
+
+**Answer: According to the graph and the numeric summary June is the most common month for bike hires.**
+
+
+*What is the most common day of the week*
+
+```{r}
+Bind_ALL$day <-wday(dmy_hm(Bind_ALL$Start.Time), label=TRUE, abbr = FALSE)
+```
+
+
+```{r echo= TRUE, results = 'asis'}
+library(knitr)
+day <- Bind_ALL %>%
+  group_by(day) %>%
+  summarise(frequency = n())
+kable(day)
+```
+
+Visualise Q2
+```{r}
+Graph=as.data.frame(day)
+dim(day)
+ggplot(aes(x=day, y=frequency), data=day) +
+  geom_col()+
+  theme_classic()+
+  labs(y="Frequency of hire", 
+       x="Day of week", 
+       title="Frequency of bike hire by day", 
+       caption = "Source: Motivate (New York, Washington, Chicago)")
+```
+
+**Answer: According to the graph and numeric summary Wednesday is the most common month for bike hires.** 
+
+
+*QUESTION 3: What is the most common hour of day?*
+
+```{r}
+Bind_ALL$hour <- hour(dmy_hm(Bind_ALL$Start.Time))
+```
+
+```{r echo= TRUE, results = 'asis'}
+hour <- Bind_ALL %>%
+  group_by(hour) %>%
+  summarise(frequency = n())
+kable(hour)
+```
+
+Visualise Q3
+```{r}
+Graph=as.data.frame(hour)
+ggplot(aes(x=hour, y=frequency), data=hour) +
+  geom_col()+
+  theme_classic()+
+  scale_x_continuous(breaks = 0:23)+
+  labs(y="Frequency of hire", 
+       x="Hour of the day (24 hour clock format)", 
+       title="Frequency of bike hire by hour", 
+       caption = "Source: Motivate (New York, Washington, Chicago)")
+```
+
+**According to the graph and numeric summary (labelled hour) 8am is the most common hour for bike hires.** 
+
