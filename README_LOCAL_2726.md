@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Date created
 *Project Created 2/01/2020*
 
@@ -23,21 +22,3 @@ Following data was taken from following:
 
 ### Credits
 Credit to Motivate
-||||||| empty tree
-=======
-### Date created
-Include the date you created this project and README file.
-
-### Project Title
-Replace the Project Title
-
-### Description
-Describe what your project is about and what it does
-
-### Files used
-Include the files used
-
-### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
->>>>>>> 46a5819dc927e9405b589b41529d76b86d41ec36
